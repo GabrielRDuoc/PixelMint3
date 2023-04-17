@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from .form import *
 
 
 # Create your views here. aca se debe crear una nueva funcion para la nueva landig
@@ -22,11 +23,23 @@ def iniciarsesion(request):
 def productos(request):
     return render(request, 'core/productos.html')
 
-def Crearcuenta(request):
-    return render(request, 'core/Crearcuenta.html')
 
 def EditarPerfil(request):
     return render(request, 'core/EditarPerfil.html')
 
 def carritoCompras(request):
     return render(request, 'core/carritoCompras.html')
+def Crearcuenta(request):
+    datos = {
+        'form': ClientForm()
+    }
+    if request.method=='POST':
+        formulario= ClientForm(request.POST)
+        if formulario.is_valid:
+            formulario.save()
+            datos['mensaje'] = "Guardado Correctamente"
+            
+    return render(request,'core/Crearcuenta.html',datos)
+
+
+

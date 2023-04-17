@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class Categoria(models.Model):
     idCategoria = models.IntegerField(primary_key=True, verbose_name='id de Categoria')
@@ -18,12 +19,13 @@ class Producto(models.Model):
         return self.nombreProducto
     
 
-    class Usuario(models.Model):
-        idUsuario=models.IntegerField(primary_key=True, verbose_name='id de usuario')
-        Nombre = models.CharField(max_length=50, verbose_name='Nombre del usuario')
-        Apellido = models.CharField(max_length=50, verbose_name='Apellido del usuario')
-        Correo =  models.CharField(max_length=50, verbose_name='Correo')
-        Direccion = models.CharField(max_length=50, verbose_name='Direccion del usuario')
-        Contraseña = models.CharField(max_length=50, verbose_name='Contraseña')
-        def __str__(self):
-            return self.Nombre
+class Usuario(models.Model):
+    idUsuario=models.IntegerField(primary_key=True, verbose_name='id de usuario')
+    Nombre = models.CharField(max_length=50, verbose_name='Nombre del usuario')
+    Apellido = models.CharField(max_length=50, verbose_name='Apellido del usuario')
+    Correo =  models.CharField(max_length=50, verbose_name='Correo')
+    Direccion = models.CharField(max_length=50, verbose_name='Direccion del usuario')
+    Contraseña = models.CharField(max_length=50, verbose_name='Contraseña')
+    confirmContraseña = models.CharField(max_length=50, verbose_name='confirmContraseña')
+    def __str__(self):
+        return self.idUsuario

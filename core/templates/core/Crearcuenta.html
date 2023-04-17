@@ -28,52 +28,35 @@
    
        </header>
        <div class="fondo4"> 
-        <form action="index.html">
-
-        <div class="container">
-          <form action="Landings/Exito.html">
+        <body>
+          <div class="row">
+              <h1>Eliminar Vehiculos</h1>
+          </div>
+          <div class="container">
             <div class="row">
-              <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                <div>
-                  Nombre Completo: 
-                  <input required type="text" id="name" onchange="allLetter()" />
+                <form action="" method="post" id="formulario">
+                    {% csrf_token %}
+                    <table class="form-group">
+                        {{form.as_table}}
+                    </table>
+    
+                    <input type="submit" class="btn btn-danger" id="enviar" value="Grabar">
+                    <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
+                    <div id="error" class="alert alert-danger" role="alert"></div>
+    
+                </form>
+                <div class="alert alert-success" role="alert">
+                    {{mensaje}}
                 </div>
-                <br />
-
-                <div>
-                  Correo electrónico: 
-                  <input required type="email" id="email"  />
-                </div>
-                <br />
-              </div>
-              <br />
-              <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-              <div>
-                Clave de ingreso: 
-                <input required type="password" id="pass" minlength="6" maxlength="18"   />
-              </div>
-              <br />
-              <div>
-                Confirmar clave: 
-                <input required type="password" id="confirm_password" minlength="6" maxlength="18"
-                  onchange="validatePassword()"  />
-              </div>
-              <br />
-
-              <div>Direccion de despacho: <input type="text" id="direccion"  /></div>
-              <br>
-              <div>Numero celular: <input type="phone" id="Numero" onchange="validatePhoneNumber()"  /></div>
             </div>
-            <div>
-            </div> <br></div>
-            <div class="row">
-              <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-              <div><button type="submit" value="envia" onclick=" exito(login)">Enviar</button></div> <br />
-              <div><input type="reset" value="Limpiar" /></div></div>
-            </div>
-            
-          </form>
+    
         </div>
+      
+      
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+      </body>
+      </html>
 
        </div>
   
