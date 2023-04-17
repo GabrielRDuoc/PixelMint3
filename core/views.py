@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .form import *
+from .models import Producto
 
 
 # Create your views here. aca se debe crear una nueva funcion para la nueva landig
@@ -21,7 +22,11 @@ def iniciarsesion(request):
      return render(request, 'core/iniciarsesion.html')
 
 def productos(request):
-    return render(request, 'core/productos.html')
+    product=Producto.objects.all()
+    context= {"Products":product}
+    return render(request, 'core/productos copy.html',context)
+def productos_copy(request):
+    return render(request, 'core/productos copy.html')
 
 
 def EditarPerfil(request):
